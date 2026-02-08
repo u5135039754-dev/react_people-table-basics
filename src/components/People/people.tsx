@@ -4,10 +4,12 @@ import { useEffect, useState } from 'react';
 import { getPeople } from '../../api';
 import { PersonLink } from '../PersonLink/personLink';
 import '../../App.scss';
+import { useParams } from 'react-router-dom';
 
 export const People = () => {
   const [people, setPeople] = useState<Person[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const { slug } = useParams();
 
   const [, setPeopleLoadingError] = useState(false);
 
@@ -67,15 +69,20 @@ export const People = () => {
 
                   return (
                     <tr
+                      data-cy="person"
                       key={person.slug}
                       className={
-                        selectedPersonSlug === person.slug
+                        (
+                          slug
+                            ? person.slug === slug
+                            : person.slug === selectedPersonSlug
+                        )
                           ? 'has-background-warning'
                           : ''
                       }
                       onClick={() => setSelectedPersonSlug(person.slug)}
                     >
-                      <td data-cy="person">
+                      <td>
                         <PersonLink person={person} />
                       </td>
 
