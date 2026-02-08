@@ -9,7 +9,7 @@ export const People = () => {
   const [people, setPeople] = useState<Person[] | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const [peopleLoadingError, setPeopleLoadingError] = useState(false);
+  const [, setPeopleLoadingError] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState('');
 
