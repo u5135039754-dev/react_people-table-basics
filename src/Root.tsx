@@ -1,0 +1,23 @@
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import { App } from './App';
+import { Home } from './components/Home/home';
+import { People } from './components/People/people';
+import { Error } from './components/Error/error';
+
+export const Root = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
+        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="/people" element={<People />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
+  </Router>
+);
