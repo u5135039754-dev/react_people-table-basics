@@ -7,7 +7,7 @@ import {
 import { App } from './App';
 import { Home } from './components/Home/home';
 import { People } from './components/People/people';
-import { Error } from './components/Error/error';
+import { NotFoundPage } from './components/Error/error';
 
 export const Root = () => (
   <Router>
@@ -18,7 +18,7 @@ export const Root = () => (
         <Route path="people">
           <Route path=":slug?" element={<People />} />
         </Route>
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </Router>
